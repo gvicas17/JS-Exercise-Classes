@@ -40,9 +40,32 @@ class Airplane {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-class Person {
-
+class Person{
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+    this.stomach = [];
+  }
+  eat(somefood){
+    if (this.stomach.length < 10){
+      this.stomach.push(somefood);
+    }
+  }
+  poop(){
+    this.stomach = [];
+    }
+    toString(){
+      return `${this.name}, ${this.age}`;
+    }
 }
+
+const newPerson = new Person({
+  name: 'Gabby',
+  age: '25',
+});
+
+console.log(newPerson.toString());
+
 
 /*
   TASK 2
@@ -59,8 +82,25 @@ class Person {
 */
 
 class Car {
-
+  constructor (model, milesPerGallon){
+    this.model = model;
+    this.milesPerGallon = milesPerGallon;
+    this.tank = 0;
+    this.odometer = 0;
+  }
+  fill(gallons){
+      this.tank += gallons;
+  }
+  drive(distance){
+    if (this.tank >= (distance/this.milesPerGallon)){
+    this.odometer += distance;
+    this.tank -= (distance/this.milesPerGallon);
+  }
+  else {
+    `I ran out of fule at ${this.odometer += Math.floor(this.tank*this.milesPerGallon)} miles!`;
+  }
 }
+  }
 
 /*
   TASK 3
@@ -75,7 +115,14 @@ class Car {
         + {name} and {location} of course come from the instance's own properties.
 */
 class Lambdasian {
-
+  constructor(name, age, location){
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
+speak(){
+  return `Hello my name is ${this.name}, I am from ${this.location}`;
+}
 }
 
 /*
